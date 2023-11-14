@@ -1,0 +1,10 @@
+browser_chrome
+width_360
+height_800
+homecountry_IT
+asscountry_IT
+gender_male
+age_31
+device_Phone
+annoying_very annoying
+suggestions_

@@ -1,0 +1,10 @@
+browser_chrome
+width_1920
+height_1080
+homecountry_
+asscountry_
+gender_
+age_
+device_
+annoying_
+suggestions_

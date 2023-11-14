@@ -1,0 +1,10 @@
+browser_chrome
+width_2560
+height_1440
+homecountry_RU
+asscountry_CA
+gender_female
+age_32
+device_PC
+annoying_slightly annoying
+suggestions_It might've been easier to assess the video quality using the 1-10 scale rather than 1-100

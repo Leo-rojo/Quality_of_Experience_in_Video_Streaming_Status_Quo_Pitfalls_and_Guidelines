@@ -1,0 +1,10 @@
+browser_chrome
+width_360
+height_640
+homecountry_KE
+asscountry_KE
+gender_male
+age_18
+device_Phone
+annoying_pleasant
+suggestions_Reduce time loading the video 

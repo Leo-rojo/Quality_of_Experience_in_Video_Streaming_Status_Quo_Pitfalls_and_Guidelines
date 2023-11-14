@@ -1,0 +1,100 @@
+score 62
+video nr 12
+score 52
+video nr 96
+score 62
+video nr 447
+score 46
+video nr 565
+score 54
+video nr 519
+score 44
+video nr 753
+score 54
+video nr 520
+score 56
+video nr 965
+score 46
+video nr 787
+score 55
+video nr 630
+score 44
+video nr 775
+score 61
+video nr 635
+score 80
+video nr 574
+score 38
+video nr 904
+score 62
+video nr 338
+score 66
+video nr 737
+score 26
+video nr 111
+score 35
+video nr 65
+score 60
+video nr 605
+score 38
+video nr 116
+score 64
+video nr 466
+score 62
+video nr 437
+score 62
+video nr 90
+score 26
+video nr 192
+score 58
+video nr 591
+score 60
+video nr 626
+score 32
+video nr 143
+score 64
+video nr 66
+score 29
+video nr 124
+score 35
+video nr 478
+score 59
+video nr 252
+score 61
+video nr 321
+score 39
+video nr 389
+score 64
+video nr 204
+score 29
+video nr 139
+score 30
+video nr 164
+score 63
+video nr 997
+score 41
+video nr 18
+score 38
+video nr 89
+score 38
+video nr 589
+score 68
+video nr 25
+score 61
+video nr 909
+score 26
+video nr 228
+score 33
+video nr 78
+score 42
+video nr 891
+score 61
+video nr 776
+score 88
+video nr 814
+score 26
+video nr 608
+score 33
+video nr 368
+score 36
+video nr 780

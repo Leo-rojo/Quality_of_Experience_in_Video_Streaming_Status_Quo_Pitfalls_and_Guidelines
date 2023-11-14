@@ -1,0 +1,24 @@
+browser_chrome
+width_1920
+height_1080
+homecountry_US
+asscountry_US
+gender_male
+age_63
+device_PC
+annoying_slightly annoying
+suggestions_have the video sound muted, it gets really repetitive 
+homecountry_US
+asscountry_US
+gender_male
+age_63
+device_PC
+annoying_slightly annoying
+suggestions_have the video sound muted, it gets really repetitive 
+homecountry_US
+asscountry_US
+gender_male
+age_63
+device_PC
+annoying_slightly annoying
+suggestions_have the video sound muted, it gets really repetitive 

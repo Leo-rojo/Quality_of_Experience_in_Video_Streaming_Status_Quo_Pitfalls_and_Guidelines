@@ -1,0 +1,10 @@
+browser_chrome
+width_1366
+height_768
+homecountry_CR
+asscountry_CR
+gender_male
+age_25
+device_PC
+annoying_pleasant
+suggestions_So far, I have no suggestions. Everything is very well structured. Thank you.

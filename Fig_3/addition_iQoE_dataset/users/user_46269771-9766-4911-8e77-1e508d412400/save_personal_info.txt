@@ -1,0 +1,10 @@
+browser_chrome
+width_1366
+height_768
+homecountry_GH
+asscountry_GH
+gender_male
+age_43
+device_PC
+annoying_pleasant
+suggestions_The videos are too many and the time for the assessment is too short. When there are a few videos and a comparatively longer time, the assessor can have a better appreciation of the work at hand.

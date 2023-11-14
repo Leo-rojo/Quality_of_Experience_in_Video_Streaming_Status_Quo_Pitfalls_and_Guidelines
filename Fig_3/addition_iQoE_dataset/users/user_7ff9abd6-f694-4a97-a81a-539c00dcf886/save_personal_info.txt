@@ -1,0 +1,10 @@
+browser_chrome
+width_1536
+height_864
+homecountry_IR
+asscountry_IR
+gender_male
+age_26
+device_PC
+annoying_quite annoying
+suggestions_reduce number of assessment 

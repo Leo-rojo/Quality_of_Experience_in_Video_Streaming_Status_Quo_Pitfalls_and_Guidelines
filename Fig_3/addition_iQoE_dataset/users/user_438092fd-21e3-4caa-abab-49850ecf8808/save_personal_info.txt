@@ -1,0 +1,10 @@
+browser_chrome
+width_1280
+height_720
+homecountry_PH
+asscountry_PH
+gender_female
+age_35
+device_PC
+annoying_pleasant
+suggestions_None as I enjoy doing the assessment

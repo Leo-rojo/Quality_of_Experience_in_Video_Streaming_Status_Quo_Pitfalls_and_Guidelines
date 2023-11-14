@@ -1,0 +1,24 @@
+browser_chrome
+width_1707
+height_1067
+homecountry_AT
+asscountry_US
+gender_male
+age_37
+device_PC
+annoying_slightly annoying
+suggestions_
+homecountry_AT
+asscountry_US
+gender_male
+age_37
+device_PC
+annoying_slightly annoying
+suggestions_
+homecountry_AT
+asscountry_US
+gender_male
+age_37
+device_PC
+annoying_slightly annoying
+suggestions_

@@ -1,0 +1,10 @@
+browser_chrome
+width_1600
+height_900
+homecountry_PH
+asscountry_PH
+gender_female
+age_29
+device_PC
+annoying_pleasant
+suggestions_it is all goood

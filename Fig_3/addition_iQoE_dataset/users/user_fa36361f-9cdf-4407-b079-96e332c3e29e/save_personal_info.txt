@@ -1,0 +1,11 @@
+browser_chrome
+width_1920
+height_1080
+homecountry_NL
+asscountry_NL
+gender_male
+age_63
+device_PC
+annoying_slightly annoying
+suggestions_Greetings.
+If you ask to watch the video clips in full-screen mode then you should consider also the time that it takes to the viewer to click the full screen button. Eight (8) seconds minus that time feels too short for a fair assessment of the video-clip quality. Possibly a 10 seconds time span would be better. Or maybe launch the video-clip directly in full screen without viewer intervention. Cheers.

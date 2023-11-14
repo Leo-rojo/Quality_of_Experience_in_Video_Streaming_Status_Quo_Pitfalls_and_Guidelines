@@ -1,0 +1,10 @@
+browser_chrome
+width_1536
+height_864
+homecountry_ZA
+asscountry_ZA
+gender_female
+age_26
+device_PC
+annoying_pleasant
+suggestions_More details needed for review. There were times the video buffered and I replayed but it buffered in same position?

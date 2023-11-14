@@ -1,0 +1,10 @@
+browser_chrome
+width_1920
+height_1080
+homecountry_IR
+asscountry_FR
+gender_female
+age_25
+device_PC
+annoying_slightly annoying
+suggestions_I think the sudden migration from one quality to another one might impact the judgments (e.g., the very same video might get different ratings based on the quality of the video that was played before it).  

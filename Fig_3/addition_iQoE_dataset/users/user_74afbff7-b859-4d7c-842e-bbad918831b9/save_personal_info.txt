@@ -1,0 +1,10 @@
+browser_chrome
+width_1920
+height_1080
+homecountry_PH
+asscountry_PH
+gender_female
+age_50
+device_Other
+annoying_slightly annoying
+suggestions_Utilize video analysis tools and software that can automatically detect and quantify stalls and distortions. This can provide a quantitative basis for your assessment.

@@ -1,0 +1,10 @@
+browser_chrome
+width_1280
+height_720
+homecountry_GB
+asscountry_GB
+gender_female
+age_24
+device_PC
+annoying_pleasant
+suggestions_

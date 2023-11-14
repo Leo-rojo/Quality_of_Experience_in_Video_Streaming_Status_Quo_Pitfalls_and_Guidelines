@@ -1,0 +1,10 @@
+browser_chrome
+width_412
+height_915
+homecountry_US
+asscountry_US
+gender_male
+age_50
+device_Phone
+annoying_pleasant
+suggestions_

@@ -1,0 +1,10 @@
+browser_chrome
+width_1920
+height_1080
+homecountry_RO
+asscountry_RO
+gender_male
+age_34
+device_PC
+annoying_pleasant
+suggestions_

@@ -1,0 +1,10 @@
+browser_chrome
+width_2560
+height_1440
+homecountry_ES
+asscountry_CH
+gender_male
+age_43
+device_PC
+annoying_quite annoying
+suggestions_

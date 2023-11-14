@@ -1,0 +1,10 @@
+browser_chrome
+width_1366
+height_768
+homecountry_MG
+asscountry_MG
+gender_male
+age_40
+device_PC
+annoying_quite annoying
+suggestions_
