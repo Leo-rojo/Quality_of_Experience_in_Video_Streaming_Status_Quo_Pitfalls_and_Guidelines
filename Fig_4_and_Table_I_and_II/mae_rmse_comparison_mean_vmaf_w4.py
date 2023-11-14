@@ -288,11 +288,11 @@ print(f"RMSE: {round(rmse_mae_log, 3)} , {round(rmse_mae_lin, 3)} ,  {round(rmse
 # Plot the results
 fig = plt.figure(figsize=(20, 10), dpi=100)
 # Data and PLCC model
-plt.scatter(x, y_plcc, label='Data', s=150)
-plt.plot(x_fit, y_fit_mae_log, label='log', color='red',linewidth=7.0)
-plt.plot(x_fit, y_fit_mae_lin, label='lin1', color='orange',linewidth=7.0)
+plt.scatter(x, y_plcc, label='Data', s=180, color='green')
+plt.plot(x_fit, y_fit_mae_log, label='log', color='red',linewidth=9.0)
+plt.plot(x_fit, y_fit_mae_lin, label='lin1', color='black',linewidth=9.0,linestyle='--')
 #plt.plot(x_fit, y_fit_srcc_lin, label='lin2', color='blue',linewidth=5.0)
-plt.plot(x_fit, y_fit_plcc_quad, label='quad', color='green',linewidth=7.0)
+plt.plot(x_fit, y_fit_plcc_quad, label='quad', color='blue',linewidth=9.0)
 plt.gcf().subplots_adjust(bottom=0.2)  # add space down
 plt.gcf().subplots_adjust(left=0.15)  # add space left
 plt.margins(0.02, 0.01)  # riduci margini tra plot e bordo

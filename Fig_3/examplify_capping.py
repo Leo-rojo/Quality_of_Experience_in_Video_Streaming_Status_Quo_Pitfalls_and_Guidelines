@@ -80,7 +80,7 @@ reg = LinearRegression().fit(np.array(all_sum_psnr).reshape(-1, 1), hdtv_mos_nor
 
 fig = plt.figure(figsize=(20, 10), dpi=100)
 # Scatter plot of data points
-plt.scatter(all_sum_psnr, hdtv_mos_noreb,s=150)
+plt.scatter(all_sum_psnr, hdtv_mos_noreb,s=180)
 
 # Predicted values using the regression model
 predicted_mos = reg.predict(np.array(all_sum_psnr).reshape(-1, 1))
@@ -100,11 +100,11 @@ print('psnr values bigger than 100: ', psnrvalues_bigger_than_100)
 zerovalue= -reg.intercept_/reg.coef_
 value100= (100-reg.intercept_)/reg.coef_
 #plot solid red regression line between zerovalue and value100
-plt.plot([zerovalue+1, value100], [1, 100], color='red', linestyle='-', linewidth=7)
+plt.plot([zerovalue+1, value100], [1, 100], color='red', linestyle='-', linewidth=9)
 #plot dashed red regression line between value100 and value100+50
-plt.plot([value100, value100+50], [100, reg.predict(np.array(value100+50).reshape(-1, 1))], color='red', linestyle=':', linewidth=7)
+plt.plot([value100, value100+50], [100, reg.predict(np.array(value100+50).reshape(-1, 1))], color='red', linestyle=':', linewidth=9)
 #plot dashed red regression line between zerovalue-50 and zerovalue
-plt.plot([zerovalue-50, zerovalue+1], [reg.predict(np.array(zerovalue-50).reshape(-1, 1)), 0], color='red', linestyle=':', linewidth=7)
+plt.plot([zerovalue-50, zerovalue+1], [reg.predict(np.array(zerovalue-50).reshape(-1, 1)), 0], color='red', linestyle=':', linewidth=9)
 #plot vertical dashed line at max(all_sum_psnr)
 plt.plot([value100, value100], [reg.predict(np.array(value100).reshape(-1, 1)), reg.predict(np.array(zerovalue+1).reshape(-1, 1))], color='black', linestyle=':', linewidth=7)
 #plot horizontal dashed line in reg.predict(np.array(max(all_sum_psnr)).reshape(-1, 1))
@@ -138,6 +138,7 @@ plt.close()
 
 points_iqoe=np.load('points_iqoe_dataset.npy')
 predicted_mos_iqoe=reg.predict(points_iqoe[:,0].reshape(-1, 1))
+print('min predicted mos iqoe: ', np.min(predicted_mos_iqoe))
 #calculate how many points are prediction less than 1 and what are their values
 count=0
 values_less_than_1=[]
@@ -152,8 +153,8 @@ print('values less than 1: ', values_less_than_1)
 print('psnr values less than 1: ', psnrvalues_less_than_1)
 fig = plt.figure(figsize=(20, 10), dpi=100)
 # Scatter plot of data points
-plt.scatter(all_sum_psnr, hdtv_mos_noreb, s=150)
-plt.scatter(points_iqoe[:,0], points_iqoe[:,1], color='green', marker='o', s=150)
+plt.scatter(all_sum_psnr, hdtv_mos_noreb, s=180)
+plt.scatter(points_iqoe[:,0], points_iqoe[:,1], color='green', marker='o', s=180)
 
 
 # Predicted values using the regression model
@@ -161,11 +162,11 @@ predicted_mos = reg.predict(np.array(all_sum_psnr).reshape(-1, 1))
 zerovalue = -reg.intercept_ / reg.coef_
 value100 = (100 - reg.intercept_) / reg.coef_
 #plot solid red regression line between zerovalue and value100
-plt.plot([zerovalue+1, value100], [1, 100], color='red', linestyle='-', linewidth=7)
+plt.plot([zerovalue+1, value100], [1, 100], color='red', linestyle='-', linewidth=9)
 #plot dashed red regression line between value100 and value100+50
-plt.plot([value100, value100+50], [100, reg.predict(np.array(value100+50).reshape(-1, 1))], color='red', linestyle=':', linewidth=7)
+plt.plot([value100, value100+50], [100, reg.predict(np.array(value100+50).reshape(-1, 1))], color='red', linestyle=':', linewidth=9)
 #plot dashed red regression line between zerovalue-50 and zerovalue
-plt.plot([zerovalue-50, zerovalue+1], [reg.predict(np.array(zerovalue-50).reshape(-1, 1)), 0], color='red', linestyle=':', linewidth=7)
+plt.plot([zerovalue-50, zerovalue+1], [reg.predict(np.array(zerovalue-50).reshape(-1, 1)), 0], color='red', linestyle=':', linewidth=9)
 #plot vertical dashed line at max(all_sum_psnr)
 plt.plot([value100, value100], [reg.predict(np.array(value100).reshape(-1, 1)), reg.predict(np.array(zerovalue+1).reshape(-1, 1))], color='black', linestyle=':', linewidth=7)
 #plot horizontal dashed line in reg.predict(np.array(max(all_sum_psnr)).reshape(-1, 1))

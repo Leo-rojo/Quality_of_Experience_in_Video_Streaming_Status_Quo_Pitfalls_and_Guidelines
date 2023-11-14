@@ -17,10 +17,10 @@ barWidth=3
 b=[i+barWidth-0.05 for i in a]
 c=[i+barWidth-0.05 for i in b]
 d=[i+barWidth-0.05 for i in c]#colori[0],colori[1],colori[2],colori[4],'r'
-plt.plot(a, [1,2,3,4,5,6,7,8],label='Log', color='red',linewidth=5.0)
-plt.plot(b, [1,2,3,4,5,6,7,8],label='Lin', color='orange',linewidth=5.0)
+plt.plot(a, [1,2,3,4,5,6,7,8],label='Logarithmic', color='red',linewidth=5.0)
+plt.plot(b, [1,2,3,4,5,6,7,8],label='Linear', color='black',linewidth=5.0,linestyle='--')
 #plt.plot(b, [1,2,3,4,5,6,7,8],label='Lin 2', color='blue',linewidth=5.0)
-plt.plot(c, [1,2,3,4,5,6,7,8],label='Qua', color='green',linewidth=5.0)
+plt.plot(c, [1,2,3,4,5,6,7,8],label='Quadratic', color='blue',linewidth=5.0)
 #plt.plot(c, [1,2,3,4,5,6,7,8], stile[3],color =colori[0],linewidth=7,label='place')
 #plt.bar(d, [1,2,3,4,5,6,7,8], color =colori[4], width = barWidth-0.1,linewidth=0,label='QBC+XGB',align='edge')
 
