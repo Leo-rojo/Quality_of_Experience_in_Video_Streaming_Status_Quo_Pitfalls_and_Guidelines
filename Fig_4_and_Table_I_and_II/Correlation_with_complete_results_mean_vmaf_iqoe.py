@@ -102,8 +102,8 @@ x=np.array(all_mean_psnr)
 y_plcc=np.array(hdtv_mos_noreb)
 
 # Initial guess for parameters
-initial_guess = [1, 0]
-initial_guess_quad = [1, 1, 1]
+initial_guess = [0, 0]
+initial_guess_quad = [2, 2, 1]
 
 # Minimize MAE (Using PLCC data, as no separate MAE data is provided)
 params_mae_log = minimize(mae_log, initial_guess, args=(x, y_plcc), method='Nelder-Mead').x
@@ -114,33 +114,33 @@ params_mae_lin = minimize(mae_lin, initial_guess, args=(x, y_plcc), method='Neld
 # Minimize PLCC
 params_plcc_quad = minimize(negative_plcc_quad, initial_guess_quad, args=(x, y_plcc), method='Nelder-Mead').x
 
-
-a_paramen=[params_mae_log[0]-i for i in np.arange(0,20,0.1)]
-a_paraplus=[params_mae_log[0]+i for i in np.arange(0,20,0.1)]
-b_paramen=[params_mae_log[1]-i for i in np.arange(0,20,0.1)]
-b_paraplus=[params_mae_log[1]+i for i in np.arange(0,20,0.1)]
-
-mae=[]
-rmse=[]
-for par_a in a_paramen+b_paraplus:
-    for par_b in b_paramen+b_paraplus:
-
-        # Generate fitted curves
-        x_fit = np.array(sorted(x))  # Adjusted x values for plotting
-        y_fit_mae_log = logarithmic_model(x_fit, par_a, par_b)
-        mae_mae_log = np.mean(np.abs(y_plcc - y_fit_mae_log))
-        # mae_srcc_lin = np.mean(np.abs(y_plcc - y_fit_srcc_lin))
-        rmse_mae_log = np.sqrt(np.mean((y_plcc - y_fit_mae_log) ** 2))
-        # rmse_srcc_lin = np.sqrt(np.mean((y_plcc - y_fit_srcc_lin)**2))
-        mae.append((mae_mae_log,par_a,par_b))
-        rmse.append((rmse_mae_log,par_a,par_b))
-#print min value of rmse2 and its index
-#find if there is mae<15 and rmse>17.6
-for i in range(len(mae)):
-    if mae[i][0]<14.7 and rmse[i][0]>17.6:
-        print(mae[i],rmse[i])
-df = pd.DataFrame({'mae':mae,'rmse':rmse})
-df.to_excel('C:/Users/leona/Desktop/QoE_comsnet/QoE_combination/Fig_4_and_Table_I_and_II/mae_rmse_log_iqoe.xlsx', index=False)
+#
+# a_paramen=[params_mae_log[0]-i for i in np.arange(0,20,0.1)]
+# a_paraplus=[params_mae_log[0]+i for i in np.arange(0,20,0.1)]
+# b_paramen=[params_mae_log[1]-i for i in np.arange(0,20,0.1)]
+# b_paraplus=[params_mae_log[1]+i for i in np.arange(0,20,0.1)]
+#
+# mae=[]
+# rmse=[]
+# for par_a in a_paramen+b_paraplus:
+#     for par_b in b_paramen+b_paraplus:
+#
+#         # Generate fitted curves
+#         x_fit = np.array(sorted(x))  # Adjusted x values for plotting
+#         y_fit_mae_log = logarithmic_model(x_fit, par_a, par_b)
+#         mae_mae_log = np.mean(np.abs(y_plcc - y_fit_mae_log))
+#         # mae_srcc_lin = np.mean(np.abs(y_plcc - y_fit_srcc_lin))
+#         rmse_mae_log = np.sqrt(np.mean((y_plcc - y_fit_mae_log) ** 2))
+#         # rmse_srcc_lin = np.sqrt(np.mean((y_plcc - y_fit_srcc_lin)**2))
+#         mae.append((mae_mae_log,par_a,par_b))
+#         rmse.append((rmse_mae_log,par_a,par_b))
+# #print min value of rmse2 and its index
+# #find if there is mae<15 and rmse>17.6
+# for i in range(len(mae)):
+#     if mae[i][0]<14.7 and rmse[i][0]>17.6:
+#         print(mae[i],rmse[i])
+# df = pd.DataFrame({'mae':mae,'rmse':rmse})
+# df.to_excel('C:/Users/leona/Desktop/QoE_comsnet/QoE_combination/Fig_4_and_Table_I_and_II/mae_rmse_log_iqoe.xlsx', index=False)
 
 # Plot the results
 # fig = plt.figure(figsize=(20, 10), dpi=100)
@@ -164,8 +164,8 @@ df.to_excel('C:/Users/leona/Desktop/QoE_comsnet/QoE_combination/Fig_4_and_Table_
 
 # Generate fitted curves
 x_fit = np.array(sorted(x))  # Adjusted x values for plotting
-#y_fit_mae_log = logarithmic_model(x_fit, *params_mae_log)
-y_fit_mae_log = logarithmic_model(x_fit, mae[309][1], mae[309][2])  #parames at index 1565 of lin
+y_fit_mae_log = logarithmic_model(x_fit, *params_mae_log)
+#y_fit_mae_log = logarithmic_model(x_fit, mae[309][1], mae[309][2])  #parames at index 1565 of lin
 y_fit_mae_lin = linear_model(x_fit, *params_mae_lin)
 #y_fit_srcc_lin = linear_model(x_fit, *params_srcc_lin)
 y_fit_plcc_quad = quadratic_model(x_fit, *params_plcc_quad)
@@ -190,7 +190,7 @@ srcc_mae_lin, _ = spearmanr(y_plcc, y_fit_mae_lin)
 #srcc_srcc_lin, _ = spearmanr(y_plcc, y_fit_srcc_lin)
 srcc_plcc_quad, _ = spearmanr(y_plcc, y_fit_plcc_quad)
 
-print('log','lin1','lin2','quad')
+print('log','lin','quad')
 print(f"PLCC: {round(plcc_mae_log, 3)} , {round(plcc_mae_lin, 3)} , {round(plcc_plcc_quad, 3)}")
 print(f"SRCC: {round(srcc_mae_log, 3)} , {round(srcc_mae_lin, 3)} ,  {round(srcc_plcc_quad, 3)}")
 print(f"MAE: {round(mae_mae_log, 3)} , {round(mae_mae_lin, 3)} ,  {round(mae_plcc_quad, 3)}")
@@ -213,7 +213,7 @@ plt.margins(0.02, 0.01)  # riduci margini tra plot e bordo
 ax = plt.gca()
 ax.tick_params(axis='x', which='major', width=7, length=24)
 ax.tick_params(axis='y', which='major', width=7, length=24, pad=20)
-plt.yticks([i for i in range(181) if i%30==0])
+plt.yticks([1, 20, 40, 60, 80, 100])#[i for i in range(101) if i%20==0])
 #xticks need to be integer
 plt.xlabel('Mean PSNR')
 plt.ylabel('MOS')

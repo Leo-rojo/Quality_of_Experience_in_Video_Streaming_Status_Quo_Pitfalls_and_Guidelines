@@ -23,9 +23,9 @@ os.makedirs('p12031')
 shutil.rmtree('p12032')
 os.makedirs('p12032')
 
-
-np.seed=42
+random.seed(42)
 start_indeces=[random.randint(0, 30 - 7) for i in range(102)]
+print(start_indeces)
 for nr_abr,abr in enumerate(['th','bb','mpc']):
     if nr_abr==0:
         all_abr_feat=ef[0:102]
@@ -347,9 +347,9 @@ for nr_abr,abr_feat in enumerate(all_ABRs_feat):
     with open('output.txt') as f:
         for line in f.readlines()[1:]:
             onefive = float(line.split('\t')[-1])
-            X_std = (onefive - 1) / (5 - 1)
-            X_scaled = X_std * (100 - 1) + 1
-            scoresbiqps.append(X_scaled)
+            #X_std = (onefive - 1) / (5 - 1)
+            #X_scaled = X_std * (100 - 1) + 1
+            scoresbiqps.append(onefive)
     #np.save('predictions_' + ABRs[nr_abr] + '/scores_biqps_' + ABRs[nr_abr], scoresbiqps)
     scores_biqps.append(scoresbiqps)
     scores_biqpss.append(scoresbiqps)
@@ -365,9 +365,9 @@ for nr_abr,abr_feat in enumerate(all_ABRs_feat):
         p1203_results = P1203Standalone(data).calculate_complete()
         onefive = p1203_results['O46']
         print(onefive)
-        X_std = (onefive - 1) / (5 - 1)
-        X_scaled = X_std * (100 - 1) + 1
-        scoresp1203.append(X_scaled)
+        #X_std = (onefive - 1) / (5 - 1)
+        #X_scaled = X_std * (100 - 1) + 1
+        scoresp1203.append(onefive)
 
     #np.save('predictions_' + ABRs[nr_abr] + '/scores_p1203_' + ABRs[nr_abr], scoresp1203)
     scores_p1203s.append(scoresp1203)

@@ -3,7 +3,6 @@ import numpy as np
 import warnings
 warnings.filterwarnings("ignore")
 import os
-os.chdir('/Table_III')
 
 ABRs=['Pensieve','FastMPC','BufferOccupancy','RateBased','Rdos']
 for nr_abr,ABR in enumerate(ABRs):
