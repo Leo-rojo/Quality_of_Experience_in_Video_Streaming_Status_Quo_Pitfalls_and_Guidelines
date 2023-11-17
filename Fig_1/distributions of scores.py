@@ -4,7 +4,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from collections import Counter
 from matplotlib import cm
-os.chdir('C:/Users/leona/Desktop/QoE_comsnet/QoE_combination/Fig_1')
+
+#input data
+mydataset_folder='../dataset_120'
+w4dataset_folder='../allfeat_allscores_WIV'
+hdtv_scores=np.load(w4dataset_folder+'/users_scores_hdtv.npy', allow_pickle=True)
+hdtv_scores=hdtv_scores.tolist()
 
 colori=cm.get_cmap('tab10').colors
 
@@ -25,9 +30,8 @@ plt.rc('font', **font_general)
 colori=cm.get_cmap('tab10').colors
 
 nr_c = 4
-
 array_of_users=[]
-mydataset_folder='C:/Users/leona/Desktop/QoE_comsnet/QoE_combination/dataset_120'
+
 for file in os.listdir(mydataset_folder):
     if file.endswith(".xlsx"):
         array_of_users.append(pd.read_excel(mydataset_folder+'/'+file))
@@ -37,41 +41,7 @@ users_scores=[]
 for user in array_of_users:
     users_scores.append(user['score'].values.tolist())
 
-w4dataset_folder='C:/Users/leona/Desktop/QoE_comsnet/QoE_combination/allfeat_allscores_WIV'
-hdtv_scores=np.load(w4dataset_folder+'/users_scores_hdtv.npy', allow_pickle=True)
-hdtv_scores=hdtv_scores.tolist()
 
-#calculate expressivity of myusers and w4users
-def calculate_expressivity(users_scores,nr,keydivisible):
-    percentage_of_expressivity_nr=[]
-    percentage_of_expressivity_certain_nrs=[]
-    for i in range(len(users_scores)):
-        counter = Counter(users_scores[i])
-        sum_values = sum(counter.values())
-        for key in counter:
-            counter[key] = counter[key] / sum_values
-        # Iterate through the dictionary
-        total_sum = 0
-        for key, value in counter.items():
-            if key % keydivisible == 0:
-                total_sum += value
-        percentage_of_expressivity_certain_nrs.append(total_sum)
-        #sum values of key that are divisible by 10
-
-        #sort counter elements by value
-        counter=dict(sorted(counter.items(), key=lambda item: item[1],reverse=True))
-        percentage_of_expressivity_nr.append(sum(list(counter.values())[0:nr]) * 100)
-    return percentage_of_expressivity_nr,percentage_of_expressivity_certain_nrs
-nr=10
-conta=0
-for c,i in enumerate([users_scores,hdtv_scores]):
-    percentage_of_expressivity_nr,divisible_10=calculate_expressivity(i,nr,5)
-    #print(divisible_10)
-    print(percentage_of_expressivity_nr)
-    plt.bar(range(len(percentage_of_expressivity_nr)),percentage_of_expressivity_nr)
-    plt.title('Expressivity of '+str(nr)+' most frequent scores '+ ['mydata','w4data'][c])
-    plt.show()
-    plt.close()
 
 #calculate the occurence of each score
 #empty counter

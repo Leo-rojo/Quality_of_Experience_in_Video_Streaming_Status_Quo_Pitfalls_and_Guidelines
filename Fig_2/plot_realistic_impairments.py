@@ -4,6 +4,10 @@ import matplotlib.pyplot as plt
 from scipy.stats import gaussian_kde
 import matplotlib.cm as cm
 from collections import Counter
+
+#input data
+re=np.load('generated_real_exp.npy')
+
 colori=cm.get_cmap('tab10').colors
 font_axes_titles = {'family': 'sans-serif',
                         'color':  'black',
@@ -20,7 +24,7 @@ font_general = {'family' : 'sans-serif',
                         'size'   : 60}
 plt.rc('font', **font_general)
 colori=cm.get_cmap('tab10').colors
-re=np.load('generated_real_exp.npy')
+
 #const
 nr_c=4
 two_features=[]
@@ -90,25 +94,6 @@ for nr,v in enumerate([[all_rep,all_rep_uni],[all_reb,all_reb_uni]]):
     # For nr = 1, create a bar plot (discrete density)
     if nr == 0:
         fig = plt.figure(figsize=(20, 10), dpi=100)
-        bins = np.arange(min(data_variable1), max(data_variable1)+2)  # Define the bins for the histogram
-        plt.hist(data_variable1, bins=bins, alpha=0.5, label='Variable 1', color='blue', edgecolor='black',density=True)
-        plt.hist(data_variable2, bins=bins, alpha=0.5, label='Variable 2', color='green', edgecolor='black',density=True)
-        plt.xticks([i+0.5 for i in range(0, 13, 1)],[str(i) for i in range(1, 14, 1)])
-        ax = plt.gca()
-        ax.tick_params(axis='x', which='major', width=7, length=24, pad=5)
-        plt.yticks([i for i in np.arange(0, 0.3, 0.05)],['0.00', '0.05', '0.10', '0.15', '0.20', '0.25'])
-        plt.ylim(0,0.3)
-        plt.gcf().subplots_adjust(bottom=0.2)  # add space down
-        plt.gcf().subplots_adjust(left=0.15)  # add space left
-        plt.margins(0.02, 0.01)  # riduci margini tra plot e bordo
-        ax.tick_params(axis='y', which='major', width=7, length=24, pad=20)
-        plt.xlabel(xl[nr])
-        plt.ylabel('Density')
-        # save plot as pdf
-        plt.savefig('kdeplot_old' + str(nr) + '.pdf', bbox_inches='tight')
-        plt.close()
-
-        fig = plt.figure(figsize=(20, 10), dpi=100)
         #count occurence of data_variable1 and data_variable2
         counter1 = Counter(data_variable1)
         counter2 = Counter(data_variable2)
@@ -123,15 +108,6 @@ for nr,v in enumerate([[all_rep,all_rep_uni],[all_reb,all_reb_uni]]):
         #sort pdf1 and pdf2 based on key
         pdf1=dict(sorted(pdf1.items(), key=lambda item: item[0]))
         pdf2=dict(sorted(pdf2.items(), key=lambda item: item[0]))
-        #extract sorted values based on key
-        #counter1=dict(sorted(counter1.items(), key=lambda item: item[0]))
-        #counter2=dict(sorted(counter2.items(), key=lambda item: item[0]))
-        #outcomes = list(counter1.keys())
-        # Calculate the total number of occurrences
-        #total_occurrences = sum(occurrences)
-        # Calculate the PDF using a dictionary
-        #pdf = {outcome: occurrence / total_occurrences for outcome, occurrence in zip(outcomes, occurrences)}
-        #plot data_variable1 and data_variable2 as barplot with different colors red and blue close
         plt.bar([i for i in range(len(counter1))], list(pdf1.values()), color='red',fill=True,edgecolor='black',width=0.3,linewidth=5)
         plt.bar([i+0.3 for i in range(len(counter2))], list(pdf2.values()), color='blue',fill=True,edgecolor='black', width=0.3,linewidth=5)
         plt.xticks([i+0.15 for i in range(len(counter1))], [str(i) for i in range(1, 14, 1)])
@@ -139,10 +115,6 @@ for nr,v in enumerate([[all_rep,all_rep_uni],[all_reb,all_reb_uni]]):
         ax.tick_params(axis='x', which='major', width=7, length=24, pad=5)
         plt.yticks([i for i in np.arange(0, 0.3, 0.05)],['0.00', '0.05', '0.10', '0.15', '0.20', '0.25'])
         plt.ylim(0,0.21)
-
-
-
-
 
     else:
         # For other values of nr, create a kernel density plot
@@ -165,10 +137,6 @@ for nr,v in enumerate([[all_rep,all_rep_uni],[all_reb,all_reb_uni]]):
         plt.yticks([i for i in np.arange(0, 3.1, 0.5)],['0.00', '0.05', '0.10', '0.15', '0.20', '0.25','0.30'])
         plt.ylim(0,3.1)
 
-
-    # Create kernel density plots
-    #sns.kdeplot(data_variable1, label='Variable 1', shade=True, color='blue')
-    #sns.kdeplot(data_variable2, label='Variable 2', shade=True, color='green')
     plt.gcf().subplots_adjust(bottom=0.2)  # add space down
     plt.gcf().subplots_adjust(left=0.15)  # add space left
     plt.margins(0.02, 0.01)  # riduci margini tra plot e bordo
@@ -176,7 +144,7 @@ for nr,v in enumerate([[all_rep,all_rep_uni],[all_reb,all_reb_uni]]):
     plt.xlabel(xl[nr])
     plt.ylabel('Density')
     #save plot as pdf
-    plt.savefig('kdeplot_'+str(nr)+'.pdf', bbox_inches='tight')
+    plt.savefig('fig_'+str(nr)+'.pdf', bbox_inches='tight')
     plt.close()
 
 max(all_reb_uni)

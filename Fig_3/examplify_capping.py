@@ -4,7 +4,14 @@ import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 from matplotlib import cm
 nr_c = 7
-folder_data = 'C:/Users/leona/Desktop/QoE_comsnet/QoE_combination/allfeat_allscores_WIV'
+#input data
+folder_data = '../allfeat_allscores_WIV'
+hdtv_feat = np.load(folder_data+'/all_feat_hdtv.npy')
+hdtv_scores = np.load(folder_data+'/users_scores_hdtv.npy')
+points_iqoe=np.load('points_iqoe_dataset.npy')
+
+#calculate mos hdtv_scores
+hdtv_mos = np.mean(hdtv_scores, axis=0)
 colori=cm.get_cmap('tab10').colors
 font_axes_titles = {'family': 'sans-serif',
                         'color':  'black',
@@ -22,11 +29,7 @@ font_general = {'family' : 'sans-serif',
 plt.rc('font', **font_general)
 colori=cm.get_cmap('tab10').colors
 
-#load hdtv data from allfeat_allscores
-hdtv_feat = np.load(folder_data+'/all_feat_hdtv.npy')
-hdtv_scores = np.load(folder_data+'/users_scores_hdtv.npy')
-#calculate mos hdtv_scores
-hdtv_mos = np.mean(hdtv_scores, axis=0)
+
 
 
 #for each row of hdtv_feat calculate the sum of rebuffering time
@@ -136,7 +139,6 @@ plt.close()
 #remove this balck dashed lines
 #plot vertical dashed line at min(all_sum_psnr)
 
-points_iqoe=np.load('points_iqoe_dataset.npy')
 predicted_mos_iqoe=reg.predict(points_iqoe[:,0].reshape(-1, 1))
 print('min predicted mos iqoe: ', np.min(predicted_mos_iqoe))
 #calculate how many points are prediction less than 1 and what are their values
