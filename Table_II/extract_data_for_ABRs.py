@@ -14,7 +14,7 @@ for nr_abr,ABR in enumerate(ABRs):
     Moses= []
     temp = []
     #collect experience name and each scores
-    with open('../original_waterlooIV_dataset/data.csv', newline='') as csvfile:
+    with open('original_waterlooIV_dataset/data.csv', newline='') as csvfile:
         csv_reader = csv.reader(csvfile, delimiter=',')
         next(csv_reader)
         for row in csv_reader:
@@ -43,7 +43,7 @@ for nr_abr,ABR in enumerate(ABRs):
     all_features=[]
     for nr,k in enumerate(abr_experienceid_mos):
         row_collect=[]
-        with open('../original_waterlooIV_dataset/streaming_logs/' + str(k[1]), newline='') as csvfile:
+        with open('original_waterlooIV_dataset/streaming_logs/' + str(k[1]), newline='') as csvfile:
             csv_reader = csv.reader(csvfile, delimiter=',')
             next(csv_reader)
             for row in csv_reader:

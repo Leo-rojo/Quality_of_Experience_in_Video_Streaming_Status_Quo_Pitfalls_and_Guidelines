@@ -12,7 +12,6 @@ import pandas as pd
 #remove warnings
 import warnings
 warnings.filterwarnings("ignore")
-os.chdir('/Table_II')
 
 #if qoes.txt exists, delete it
 if os.path.exists('qoes.txt'):
@@ -320,7 +319,7 @@ for nr_abr,abr in enumerate(ABRs[:-1]):
 cols = list(df.columns.values)
 df = df[cols[0:9]+[cols[-1]]+[cols[-2]]]
 # Save the final DataFrame to a CSV file
-df.to_csv('qoes_new.csv', index=False)
+df.to_csv('qoes.csv', index=False)
 
 #print every row of df
 for index, row in df.iterrows():

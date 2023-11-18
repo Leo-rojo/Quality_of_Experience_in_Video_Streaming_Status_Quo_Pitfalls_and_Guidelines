@@ -58,15 +58,6 @@ for exp in re:
     two_features.append([s_rep, s_reb, s_dif_rep])
 two_features=np.array(two_features).reshape(-1,3)
 
-#plot distribution all rep
-plt.hist(all_rep, bins=13)
-plt.show()
-plt.hist(all_reb, bins=20)
-plt.show()
-all_reb_without_0=[i for i in all_reb if i!=0]
-plt.hist(all_reb_without_0, bins=20)
-plt.show()
-
 ####################################################
 import random
 VIDEO_BIT_RATE = [0.235, 0.375, 0.560, 0.750, 1.050, 1.750, 2.350, 3, 4.3, 5.8, 8.1, 11.6, 16.8]
@@ -98,6 +89,7 @@ for nr,v in enumerate([[all_rep,all_rep_uni],[all_reb,all_reb_uni]]):
         counter1 = Counter(data_variable1)
         counter2 = Counter(data_variable2)
 
+
         # Calculate the total number of elements
         total_elements1 = sum(counter1.values())
         total_elements2 = sum(counter2.values())
@@ -108,6 +100,9 @@ for nr,v in enumerate([[all_rep,all_rep_uni],[all_reb,all_reb_uni]]):
         #sort pdf1 and pdf2 based on key
         pdf1=dict(sorted(pdf1.items(), key=lambda item: item[0]))
         pdf2=dict(sorted(pdf2.items(), key=lambda item: item[0]))
+        print('values fig 2a')
+        print('reds: ',pdf1)
+        print('blues: ',pdf2)
         plt.bar([i for i in range(len(counter1))], list(pdf1.values()), color='red',fill=True,edgecolor='black',width=0.3,linewidth=5)
         plt.bar([i+0.3 for i in range(len(counter2))], list(pdf2.values()), color='blue',fill=True,edgecolor='black', width=0.3,linewidth=5)
         plt.xticks([i+0.15 for i in range(len(counter1))], [str(i) for i in range(1, 14, 1)])
@@ -123,14 +118,6 @@ for nr,v in enumerate([[all_rep,all_rep_uni],[all_reb,all_reb_uni]]):
         fig= plt.figure(figsize=(20, 10), dpi=100)
         a=sns.kdeplot(data_variable2, label='Variable 2', color='blue',linewidth=7,linestyle='-')
         b=sns.kdeplot(data_variable1, label='Variable 1', color='red', linewidth=7,linestyle='-')
-
-        # Add hatch pattern to the filled area
-        # hatch_pattern = '///'  # You can specify the hatch pattern you prefer
-        #
-        # # Loop through the filled areas and set the hatch pattern
-        # for patch in plt.gca().collections:
-        #     patch.set_hatch(hatch_pattern)
-        # Create a combined KDE plot to shade the overlapping area
         ax = plt.gca()
         ax.tick_params(axis='x', which='major', width=7, length=24)
         plt.xlim(0,5)

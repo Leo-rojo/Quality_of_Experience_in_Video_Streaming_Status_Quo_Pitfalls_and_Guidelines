@@ -1,2 +1,0 @@
-inputFiles	predictedValues
-exp_1.0500000000000003.csv	4.704460
