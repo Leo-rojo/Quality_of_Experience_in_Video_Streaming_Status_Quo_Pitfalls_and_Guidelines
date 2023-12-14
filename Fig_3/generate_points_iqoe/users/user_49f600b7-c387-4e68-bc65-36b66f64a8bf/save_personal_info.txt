@@ -1,0 +1,3 @@
+browser_chrome
+width_1366
+height_768

@@ -1,0 +1,10 @@
+browser_chrome
+width_1366
+height_768
+homecountry_BR
+asscountry_BR
+gender_male
+age_42
+device_PC
+annoying_pleasant
+suggestions_Less effects in the iron or in the metals itself. 

@@ -1,0 +1,10 @@
+browser_chrome
+width_1366
+height_768
+homecountry_CR
+asscountry_CR
+gender_female
+age_22
+device_PC
+annoying_pleasant
+suggestions_I suggest putting text centered. to improve the design and to improve the visual aid. Everything else seems excellent to me, I don't think it needs more.

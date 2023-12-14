@@ -1,0 +1,10 @@
+browser_chrome
+width_1512
+height_982
+homecountry_VN
+asscountry_AT
+gender_male
+age_28
+device_PC
+annoying_pleasant
+suggestions_

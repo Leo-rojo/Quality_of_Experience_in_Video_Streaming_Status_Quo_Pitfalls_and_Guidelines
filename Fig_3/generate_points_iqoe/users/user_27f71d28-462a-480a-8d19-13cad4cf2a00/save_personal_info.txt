@@ -1,0 +1,10 @@
+browser_chrome
+width_1366
+height_768
+homecountry_TN
+asscountry_TN
+gender_male
+age_22
+device_PC
+annoying_pleasant
+suggestions_focus more on the quality

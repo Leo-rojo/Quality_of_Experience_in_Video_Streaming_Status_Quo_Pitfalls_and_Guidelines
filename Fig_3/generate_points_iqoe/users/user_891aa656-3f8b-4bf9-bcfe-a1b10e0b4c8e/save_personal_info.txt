@@ -1,0 +1,10 @@
+browser_chrome
+width_1366
+height_768
+homecountry_SV
+asscountry_SV
+gender_male
+age_33
+device_PC
+annoying_pleasant
+suggestions_put the text in a box, for visual aid. I like the color of the buttons, but you need to put a box in the text.

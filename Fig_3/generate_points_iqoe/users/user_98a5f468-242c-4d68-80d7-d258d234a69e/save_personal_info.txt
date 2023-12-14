@@ -1,0 +1,20 @@
+browser_chrome
+width_1440
+height_900
+homecountry_ES
+asscountry_ES
+gender_male
+age_118
+device_PC
+annoying_pleasant
+suggestions_
+browser_chrome
+width_1440
+height_900
+homecountry_ES
+asscountry_ES
+gender_male
+age_118
+device_PC
+annoying_pleasant
+suggestions_Auto play with pauses

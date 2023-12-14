@@ -1,0 +1,10 @@
+browser_chrome
+width_1366
+height_768
+homecountry_DZ
+asscountry_DZ
+gender_male
+age_36
+device_PC
+annoying_pleasant
+suggestions_

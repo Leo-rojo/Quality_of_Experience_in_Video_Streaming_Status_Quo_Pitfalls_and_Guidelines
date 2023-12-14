@@ -1,0 +1,10 @@
+browser_chrome
+width_1600
+height_900
+homecountry_PH
+asscountry_PH
+gender_male
+age_20
+device_PC
+annoying_pleasant
+suggestions_I really enjoyed participating this assesment.I hope you create more assesments in the future.May god bless you.

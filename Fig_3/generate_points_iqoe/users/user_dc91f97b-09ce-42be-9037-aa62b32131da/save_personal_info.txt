@@ -1,0 +1,24 @@
+browser_chrome
+width_1595
+height_897
+homecountry_IT
+asscountry_IT
+gender_male
+age_28
+device_PC
+annoying_quite annoying
+suggestions_Maybe lower the total number of videos. You would have less data, indeed, but I think it would be more reliable. From my personal experience, I feel like I started to care less and less about my evaluation as time went by. Of course I did not give up, but other users might start giving less objective evaluations after a while.
+
+I do not think the offered feature of "pause it and continue later" is enough to make up for the total length of the process. I think the average user would just want to get this done as quickly as possible. 
+
+On the other hand, maybe it would be worth increasing the duration per video. Sometimes 8 seconds is not even enough to properly put full screen mode on and start evaluating the video objectively.
+
+Last suggestion: if possible, maybe try to make the repetitive "start video, watch video, rate video" process even smoother. This would totally help.
+
+A few thoughts about how to do it:
+
+- Get rid of the integer slider: I highly doubt differences of few integers are gonna make any difference for your results, and such small differences are likely just due to personal preferences. Put just categorical values (5 maybe? surely not more than 10), you could just re-use the labels you already put there, the ones that "explain" the integer ranges.
+
+- Show these evaluation buttons right at the end of the video (maybe start showing them even 1-2 seconds before the video ends).
+
+- Once the user clicks one of the rating buttons, DIRECTLY play the next video, with as less delay as possible (in this case of course you should keep an ever-present button somewhere where the user can stop/pause the entire process). I think this will greatly increase user comfort, because the user skips a few annoying and repetitive clicks.

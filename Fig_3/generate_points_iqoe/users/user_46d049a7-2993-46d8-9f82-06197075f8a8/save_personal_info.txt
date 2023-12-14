@@ -1,0 +1,10 @@
+browser_chrome
+width_2048
+height_1152
+homecountry_IT
+asscountry_AT
+gender_male
+age_26
+device_PC
+annoying_quite annoying
+suggestions_different lengths, longer videos on average, less fine-grained valuation

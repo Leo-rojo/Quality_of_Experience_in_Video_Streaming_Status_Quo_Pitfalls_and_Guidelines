@@ -1,0 +1,20 @@
+browser_chrome
+width_1920
+height_1200
+homecountry_PH
+asscountry_0
+gender_female
+age_34
+device_PC
+annoying_pleasant
+suggestions_
+browser_chrome
+width_1920
+height_1200
+homecountry_PH
+asscountry_0
+gender_female
+age_34
+device_PC
+annoying_pleasant
+suggestions_It was very impressive

@@ -1,0 +1,10 @@
+browser_chrome
+width_1728
+height_1117
+homecountry_IT
+asscountry_ES
+gender_female
+age_30
+device_PC
+annoying_pleasant
+suggestions_

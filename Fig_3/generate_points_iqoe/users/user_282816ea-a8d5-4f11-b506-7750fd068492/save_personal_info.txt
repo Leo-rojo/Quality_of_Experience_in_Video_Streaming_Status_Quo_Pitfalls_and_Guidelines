@@ -1,0 +1,10 @@
+browser_chrome
+width_1536
+height_864
+homecountry_MA
+asscountry_MA
+gender_female
+age_28
+device_PC
+annoying_pleasant
+suggestions_

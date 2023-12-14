@@ -1,0 +1,20 @@
+browser_chrome
+width_1280
+height_800
+homecountry_KE
+asscountry_KE
+gender_female
+age_31
+device_PC
+annoying_pleasant
+suggestions_The assessment should not take too long.
+browser_chrome
+width_1280
+height_800
+homecountry_KE
+asscountry_KE
+gender_female
+age_31
+device_PC
+annoying_pleasant
+suggestions_The assessment should not take too long. But overall the task was good

@@ -1,0 +1,30 @@
+browser_chrome
+width_1280
+height_800
+homecountry_KE
+asscountry_KE
+gender_male
+age_23
+device_PC
+annoying_pleasant
+suggestions_The task took too long to complete and and videos were taking some seconds to load. I would recommend this to be improved
+browser_chrome
+width_1280
+height_800
+homecountry_KE
+asscountry_KE
+gender_male
+age_23
+device_PC
+annoying_pleasant
+suggestions_The task took too long to complete and and videos were taking some seconds to load. I would recommend this to be improved. Everything else was good
+browser_chrome
+width_1280
+height_800
+homecountry_KE
+asscountry_KE
+gender_male
+age_23
+device_PC
+annoying_pleasant
+suggestions_The task took too long to complete and and videos were taking some seconds to load. I would recommend this to be improved. Everything else was good.

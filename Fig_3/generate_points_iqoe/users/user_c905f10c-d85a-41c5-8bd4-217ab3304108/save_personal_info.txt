@@ -1,0 +1,11 @@
+browser_firefox
+width_1536
+height_864
+homecountry_IR
+asscountry_IR
+gender_male
+age_45
+device_PC
+annoying_slightly annoying
+suggestions_The assessment was good. some videos were poor and some were good. in some videos, there were negative smoothness and positive smoothness. 
+I think that positive smoothness is better than negative smoothness.

@@ -1,0 +1,10 @@
+browser_chrome
+width_1920
+height_1080
+homecountry_IT
+asscountry_IT
+gender_male
+age_31
+device_PC
+annoying_slightly annoying
+suggestions_I would suggest reducing the score that the user can assign. The range 0-100 is too large and the categories are still 4 or 5. Using only 4 or 5 score categories is my suggestion.

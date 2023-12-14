@@ -1,0 +1,17 @@
+browser_chrome
+width_1920
+height_1080
+homecountry_KE
+asscountry_KE
+gender_male
+age_30
+device_PC
+annoying_quite annoying
+suggestions_Load the videos faster.
+homecountry_KE
+asscountry_KE
+gender_male
+age_30
+device_PC
+annoying_quite annoying
+suggestions_Load the videos faster.

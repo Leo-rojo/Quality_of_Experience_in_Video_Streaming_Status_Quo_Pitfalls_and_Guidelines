@@ -1,0 +1,10 @@
+browser_firefox
+width_3840
+height_2160
+homecountry_RU
+asscountry_ES
+gender_male
+age_51
+device_PC
+annoying_pleasant
+suggestions_

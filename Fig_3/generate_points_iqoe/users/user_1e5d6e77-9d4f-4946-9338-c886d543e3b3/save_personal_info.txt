@@ -1,0 +1,17 @@
+browser_chrome
+width_1366
+height_768
+homecountry_PH
+asscountry_PH
+gender_female
+age_25
+device_PC
+annoying_pleasant
+suggestions_I have no suggestions because It's interesting 
+homecountry_PH
+asscountry_PH
+gender_female
+age_25
+device_PC
+annoying_pleasant
+suggestions_I have no suggestions because It's interesting 
