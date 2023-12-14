@@ -1,5 +1,4 @@
 ## Folder description
-
 - Run the file Generate_fig_4a.py in order to generate Figure 4a. It uses as input data the folder allfeat_allscores_WIV.
 - Run the file Generate_fig_4b.py in order to generate Figure 4b. It uses as input data mos_iQoE_zero_buff.npy and exp_iqoe_zero_buff.npy.
 - Run the file Plot_legend.py in order to generate the legend of Figure 4a and 4b.
