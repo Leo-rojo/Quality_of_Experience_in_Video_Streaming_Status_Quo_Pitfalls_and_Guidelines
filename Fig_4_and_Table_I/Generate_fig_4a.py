@@ -20,6 +20,12 @@ font_general = {'family' : 'sans-serif',
                         'size'   : 60}
 plt.rc('font', **font_general)
 colori=cm.get_cmap('tab10').colors
+
+folder_data = '../allfeat_allscores_WIV/'
+#load hdtv data from allfeat_allscores
+hdtv_feat = np.load(folder_data+'all_feat_hdtv.npy')
+hdtv_scores = np.load(folder_data+'users_scores_hdtv.npy')
+
 def logarithmic_model(x, a, b):
     return a * np.log(x) + b
 def linear_model(x, a, b):
@@ -52,10 +58,6 @@ def rmse_lin(params, x, y):
 
 
 nr_c = 7
-folder_data = 'C:/Users/leona/Desktop/QoE_comsnet/QoE_combination/allfeat_allscores_WIV/'
-#load hdtv data from allfeat_allscores
-hdtv_feat = np.load(folder_data+'all_feat_hdtv.npy')
-hdtv_scores = np.load(folder_data+'users_scores_hdtv.npy')
 #calculate mos hdtv_scores
 hdtv_mos = np.mean(hdtv_scores, axis=0)
 
@@ -127,67 +129,30 @@ initial_guess_quad = [2, 0, -1]
 # Minimize MAE (Using PLCC data, as no separate MAE data is provided)
 params_mae_log = minimize(mae_log, initial_guess, args=(x, y_plcc), method='Nelder-Mead').x
 # Minimize MAE (Using PLCC data, as no separate MAE data is provided)
-#params_mae_lin = minimize(mae_lin, initial_guess, args=(x, y_plcc), method='Nelder-Mead').x
 params_rmse_lin = minimize(rmse_lin, initial_guess, args=(x, y_plcc), method='Nelder-Mead').x
-# Minimize SRCC (Using PLCC data)
-#params_srcc_lin = minimize(srcc_lin, initial_guess, args=(x, y_plcc), method='Nelder-Mead').x
 # Minimize PLCC
 params_plcc_quad = minimize(negative_plcc_quad, initial_guess_quad, args=(x, y_plcc), method='Nelder-Mead').x
 
-
-####################################bloack lin##############################################
-# #lin
-# a_paramen_lin=[params_mae_lin[0]-i for i in np.arange(0,20,0.1)]
-# a_paraplus_lin=[params_mae_lin[0]+i for i in np.arange(0,20,0.1)]
-# b_paramen_lin=[params_mae_lin[1]-i for i in np.arange(0,20,0.1)]
-# b_paraplus_lin=[params_mae_lin[1]+i for i in np.arange(0,20,0.1)]
-#
-# mae2=[]
-# rmse2=[]
-# for par_a in a_paramen_lin+b_paraplus_lin:
-#     for par_b in b_paramen_lin+b_paraplus_lin:
-#
-#         # Generate fitted curves
-#         x_fit = np.array(sorted(x))  # Adjusted x values for plotting
-#         y_fit_mae_lin = linear_model(x_fit, par_a, par_b)
-#         mae_mae_lin = np.mean(np.abs(y_plcc - y_fit_mae_lin))
-#         # mae_srcc_lin = np.mean(np.abs(y_plcc - y_fit_srcc_lin))
-#         rmse_mae_lin = np.sqrt(np.mean((y_plcc - y_fit_mae_lin) ** 2))
-#         # rmse_srcc_lin = np.sqrt(np.mean((y_plcc - y_fit_srcc_lin)**2))
-#         mae2.append((mae_mae_lin,par_a,par_b))
-#         rmse2.append((rmse_mae_lin,par_a,par_b))
-#
-# #print min value for rmse_mae_log
-# print(min(rmse2))
-# #print index of the min value for rmse_mae_log
-# print(rmse2.index(min(rmse2)))
-############################################################################################
 # Generate fitted curves
 x_fit = np.array(sorted(x))  # Adjusted x values for plotting
 y_fit_mae_log = logarithmic_model(x_fit, *params_mae_log)
 y_fit_mae_lin = linear_model(x_fit, *params_rmse_lin)
-#y_fit_mae_lin = linear_model(x_fit, mae2[1565][1], mae2[1565][2])  #parames at index 1565 of lin
-#y_fit_srcc_lin = linear_model(x_fit, *params_srcc_lin)
 y_fit_plcc_quad = quadratic_model(x_fit, *params_plcc_quad)
 # Calculate metrics
 plcc_mae_log, _ = pearsonr(y_plcc, y_fit_mae_log)
 plcc_mae_lin, _ = pearsonr(y_plcc, y_fit_mae_lin)
-#plcc_srcc_lin, _ = pearsonr(y_plcc, y_fit_srcc_lin)
 plcc_plcc_quad, _ = pearsonr(y_plcc, y_fit_plcc_quad)
 
 mae_mae_log = np.mean(np.abs(y_plcc - y_fit_mae_log))
 mae_mae_lin = np.mean(np.abs(y_plcc - y_fit_mae_lin))
-#mae_srcc_lin = np.mean(np.abs(y_plcc - y_fit_srcc_lin))
 mae_plcc_quad = np.mean(np.abs(y_plcc - y_fit_plcc_quad))
 
 rmse_mae_log = np.sqrt(np.mean((y_plcc - y_fit_mae_log)**2))
 rmse_mae_lin = np.sqrt(np.mean((y_plcc - y_fit_mae_lin)**2))
-#rmse_srcc_lin = np.sqrt(np.mean((y_plcc - y_fit_srcc_lin)**2))
 rmse_plcc_quad = np.sqrt(np.mean((y_plcc - y_fit_plcc_quad)**2))
 
 srcc_mae_log, _ = spearmanr(y_plcc, y_fit_mae_log)
 srcc_mae_lin, _ = spearmanr(y_plcc, y_fit_mae_lin)
-#srcc_srcc_lin, _ = spearmanr(y_plcc, y_fit_srcc_lin)
 srcc_plcc_quad, _ = spearmanr(y_plcc, y_fit_plcc_quad)
 
 print('log','lin','quad')
@@ -195,9 +160,6 @@ print(f"PLCC: {round(plcc_mae_log, 3)} , {round(plcc_mae_lin, 3)} ,  {round(plcc
 print(f"SRCC: {round(srcc_mae_log, 3)} , {round(srcc_mae_lin, 3)} ,  {round(srcc_plcc_quad, 3)}")
 print(f"MAE: {round(mae_mae_log, 3)} , {round(mae_mae_lin, 3)} ,  {round(mae_plcc_quad, 3)}")
 print(f"RMSE: {round(rmse_mae_log, 3)} , {round(rmse_mae_lin, 3)} ,  {round(rmse_plcc_quad, 3)}")
-# print(f"MAE metric: {mae_plcc_log} (PLCC_opt), {mae_mae_log} (MAE_opt), {mae_rmse_log} (RMSE_opt), {mae_srcc_log} (SRCC_opt)")
-# print(f"RMSE metric: {rmse_plcc_log} (PLCC_opt), {rmse_mae_log} (MAE_opt), {rmse_rmse_log} (RMSE_opt), {rmse_srcc_log} (SRCC_opt)")
-# print(f"SRCC metric: {srcc_plcc_log} (PLCC_opt), {srcc_mae_log} (MAE_opt), {srcc_rmse_log} (RMSE_opt), {srcc_srcc_log} (SRCC_opt)")
 
 # Plot the results
 fig = plt.figure(figsize=(20, 10), dpi=100)
@@ -205,7 +167,6 @@ fig = plt.figure(figsize=(20, 10), dpi=100)
 plt.scatter(x, y_plcc, label='Data', s=180, color='green')
 plt.plot(x_fit, y_fit_mae_log, label='log', color='red',linewidth=9.0)
 plt.plot(x_fit, y_fit_mae_lin, label='lin1', color='black',linewidth=9.0,linestyle='--')
-#plt.plot(x_fit, y_fit_srcc_lin, label='lin2', color='blue',linewidth=5.0)
 plt.plot(x_fit, y_fit_plcc_quad, label='quad', color='blue',linewidth=9.0)
 plt.gcf().subplots_adjust(bottom=0.2)  # add space down
 plt.gcf().subplots_adjust(left=0.15)  # add space left
@@ -219,5 +180,5 @@ plt.xlabel('Mean VMAF')
 plt.ylabel('MOS')
 #plt.legend()
 #save plt
-fig.savefig('C:/Users/leona/Desktop/QoE_comsnet/QoE_combination/Fig_4_and_Table_I/hdtv_corr_mean_vmaf.pdf',bbox_inches='tight')
-fig.savefig('C:/Users/leona/Desktop/QoE_comsnet/QoE_combination/Fig_4_and_Table_I/hdtv_corr_mean_vmaf.png',bbox_inches='tight')
+fig.savefig('hdtv_corr_mean_vmaf.pdf',bbox_inches='tight')
+fig.savefig('hdtv_corr_mean_vmaf.png',bbox_inches='tight')

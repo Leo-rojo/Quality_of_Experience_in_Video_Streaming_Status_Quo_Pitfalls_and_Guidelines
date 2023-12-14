@@ -21,6 +21,10 @@ font_general = {'family' : 'sans-serif',
                         'size'   : 60}
 plt.rc('font', **font_general)
 colori=cm.get_cmap('tab10').colors
+
+hdtv_feat_noreb = np.load('exp_iqoe_zero_buf.npy')
+hdtv_mos_noreb = np.load('mos_iQoE_zero_buff.npy')
+
 def logarithmic_model(x, a, b):
     return a * np.log(x) + b
 def linear_model(x, a, b):
@@ -48,10 +52,6 @@ def negative_plcc_quad(params, x, y):
     return -plcc
 
 nr_c = 4
-#folder_data = 'C:/Users/leona/Desktop/QoE_comsnet/QoE_combination/allfeat_allscores_WIV/'
-#load hdtv data from allfeat_allscores
-hdtv_feat_noreb = np.load('exp_iqoe_zero_buf.npy')
-hdtv_mos_noreb = np.load('mos_iQoE_zero_buff.npy')
 
 #calcualte sumbit for each row of hdtv_feat_noreb
 all_sum_bits= []
@@ -165,29 +165,23 @@ params_plcc_quad = minimize(negative_plcc_quad, initial_guess_quad, args=(x, y_p
 # Generate fitted curves
 x_fit = np.array(sorted(x))  # Adjusted x values for plotting
 y_fit_mae_log = logarithmic_model(x_fit, *params_mae_log)
-#y_fit_mae_log = logarithmic_model(x_fit, mae[309][1], mae[309][2])  #parames at index 1565 of lin
 y_fit_mae_lin = linear_model(x_fit, *params_mae_lin)
-#y_fit_srcc_lin = linear_model(x_fit, *params_srcc_lin)
 y_fit_plcc_quad = quadratic_model(x_fit, *params_plcc_quad)
 # Calculate metrics
 plcc_mae_log, _ = pearsonr(y_plcc, y_fit_mae_log)
 plcc_mae_lin, _ = pearsonr(y_plcc, y_fit_mae_lin)
-#plcc_srcc_lin, _ = pearsonr(y_plcc, y_fit_srcc_lin)
 plcc_plcc_quad, _ = pearsonr(y_plcc, y_fit_plcc_quad)
 
 mae_mae_log = np.mean(np.abs(y_plcc - y_fit_mae_log))
 mae_mae_lin = np.mean(np.abs(y_plcc - y_fit_mae_lin))
-#mae_srcc_lin = np.mean(np.abs(y_plcc - y_fit_srcc_lin))
 mae_plcc_quad = np.mean(np.abs(y_plcc - y_fit_plcc_quad))
 
 rmse_mae_log = np.sqrt(np.mean((y_plcc - y_fit_mae_log)**2))
 rmse_mae_lin = np.sqrt(np.mean((y_plcc - y_fit_mae_lin)**2))
-#rmse_srcc_lin = np.sqrt(np.mean((y_plcc - y_fit_srcc_lin)**2))
 rmse_plcc_quad = np.sqrt(np.mean((y_plcc - y_fit_plcc_quad)**2))
 
 srcc_mae_log, _ = spearmanr(y_plcc, y_fit_mae_log)
 srcc_mae_lin, _ = spearmanr(y_plcc, y_fit_mae_lin)
-#srcc_srcc_lin, _ = spearmanr(y_plcc, y_fit_srcc_lin)
 srcc_plcc_quad, _ = spearmanr(y_plcc, y_fit_plcc_quad)
 
 print('log','lin','quad')
@@ -205,7 +199,6 @@ fig = plt.figure(figsize=(20, 10), dpi=100)
 plt.scatter(x, y_plcc, label='Data', s=180,color='green')
 plt.plot(x_fit, y_fit_mae_log, label='log', color='red',linewidth=9.0)
 plt.plot(x_fit, y_fit_mae_lin, label='lin1', color='black',linewidth=9.0,linestyle='--')
-#plt.plot(x_fit, y_fit_srcc_lin, label='lin2', color='blue',linewidth=5.0)
 plt.plot(x_fit, y_fit_plcc_quad, label='quad', color='blue',linewidth=9.0)
 plt.gcf().subplots_adjust(bottom=0.2)  # add space down
 plt.gcf().subplots_adjust(left=0.15)  # add space left
@@ -217,7 +210,6 @@ plt.yticks([1, 20, 40, 60, 80, 100])#[i for i in range(101) if i%20==0])
 #xticks need to be integer
 plt.xlabel('Mean PSNR')
 plt.ylabel('MOS')
-#plt.legend()
 #save plt
-fig.savefig('C:/Users/leona/Desktop/QoE_comsnet/QoE_combination/Fig_4_and_Table_I/hdtv_corr_mean_psnr_iqoe.pdf',bbox_inches='tight')
-fig.savefig('C:/Users/leona/Desktop/QoE_comsnet/QoE_combination/Fig_4_and_Table_I/hdtv_corr_mean_psnr_iqoe.png',bbox_inches='tight')
+fig.savefig('hdtv_corr_mean_psnr_iqoe.pdf',bbox_inches='tight')
+fig.savefig('hdtv_corr_mean_psnr_iqoe.png',bbox_inches='tight')

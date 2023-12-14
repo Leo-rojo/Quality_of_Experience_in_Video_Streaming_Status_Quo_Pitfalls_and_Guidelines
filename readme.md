@@ -30,7 +30,7 @@ model P require installation of ITU-T Rec. P.1203 Standalone Implementation<sup>
 
 ### Evaluation and expected results
 The repository allocates a separate self-contained folder for reproducing the results of each figure and/or table, with readme.md files providing
-specific instructions.
+specific instructions. Folder allfeat_allscores_WIV contains elaborated input data from Waterloo-IV dataset, similarly dataset_120 contains input data from iQoE dataset. 
 
 <sup>1</sup>https://github.com/Leo-rojo/iQoE_Dataset_and_Code
 
