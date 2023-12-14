@@ -220,3 +220,4 @@ plt.ylabel('MOS')
 #plt.legend()
 #save plt
 fig.savefig('C:/Users/leona/Desktop/QoE_comsnet/QoE_combination/Fig_4_and_Table_I/hdtv_corr_mean_vmaf.pdf',bbox_inches='tight')
+fig.savefig('C:/Users/leona/Desktop/QoE_comsnet/QoE_combination/Fig_4_and_Table_I/hdtv_corr_mean_vmaf.png',bbox_inches='tight')

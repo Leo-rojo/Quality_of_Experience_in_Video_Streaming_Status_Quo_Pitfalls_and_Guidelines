@@ -220,3 +220,4 @@ plt.ylabel('MOS')
 #plt.legend()
 #save plt
 fig.savefig('C:/Users/leona/Desktop/QoE_comsnet/QoE_combination/Fig_4_and_Table_I/hdtv_corr_mean_psnr_iqoe.pdf',bbox_inches='tight')
+fig.savefig('C:/Users/leona/Desktop/QoE_comsnet/QoE_combination/Fig_4_and_Table_I/hdtv_corr_mean_psnr_iqoe.png',bbox_inches='tight')

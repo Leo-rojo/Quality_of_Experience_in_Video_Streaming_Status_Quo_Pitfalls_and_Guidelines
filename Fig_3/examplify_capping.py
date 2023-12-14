@@ -134,6 +134,7 @@ ax.tick_params(axis='y', which='major', width=5, length=20, pad=20)
 #plt.ylim(0, 6.1)
 plt.yticks([1, 20, 40, 60, 80, 100], ['1', '20', '40', '60', '80', '100'])
 plt.savefig('hdtv_sum_psnr.pdf',bbox_inches='tight')
+plt.savefig('hdtv_sum_psnr.png',bbox_inches='tight')
 plt.close()
 
 #remove this balck dashed lines
@@ -199,6 +200,7 @@ ax.tick_params(axis='x', which='major', width=5, length=20)
 ax.tick_params(axis='y', which='major', width=5, length=20, pad=20)
 # plt.ylim(0, 6.1)
 plt.savefig('hdtv_sum_psnr_iqoe.pdf',bbox_inches='tight')
+plt.savefig('hdtv_sum_psnr_iqoe.png',bbox_inches='tight')
 plt.close()
 
 

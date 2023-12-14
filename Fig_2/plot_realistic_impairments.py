@@ -132,6 +132,7 @@ for nr,v in enumerate([[all_rep,all_rep_uni],[all_reb,all_reb_uni]]):
     plt.ylabel('Density')
     #save plot as pdf
     plt.savefig('fig_'+str(nr)+'.pdf', bbox_inches='tight')
+    plt.savefig('fig_'+str(nr)+'.png', bbox_inches='tight')
     plt.close()
 
 max(all_reb_uni)

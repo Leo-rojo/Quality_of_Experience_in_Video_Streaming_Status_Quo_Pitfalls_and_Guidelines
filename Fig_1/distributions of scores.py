@@ -6,7 +6,7 @@ from collections import Counter
 from matplotlib import cm
 
 #input data
-mydataset_folder='../dataset_120'
+iqoedataset_folder='../dataset_120'
 w4dataset_folder='../allfeat_allscores_WIV'
 hdtv_scores=np.load(w4dataset_folder+'/users_scores_hdtv.npy', allow_pickle=True)
 hdtv_scores=hdtv_scores.tolist()
@@ -32,9 +32,9 @@ colori=cm.get_cmap('tab10').colors
 nr_c = 4
 array_of_users=[]
 
-for file in os.listdir(mydataset_folder):
+for file in os.listdir(iqoedataset_folder):
     if file.endswith(".xlsx"):
-        array_of_users.append(pd.read_excel(mydataset_folder+'/'+file))
+        array_of_users.append(pd.read_excel(iqoedataset_folder+'/'+file))
 
 #for every user in the array extract the scores
 users_scores=[]
@@ -90,6 +90,7 @@ for c,i in enumerate([users_scores,hdtv_scores]):
     plt.ylim(0, 7.1)
     # plt.show()
     plt.savefig('all_scores_distribution'+['mydata','w4'][c]+'.pdf', bbox_inches='tight')
+    plt.savefig('all_scores_distribution'+['mydata','w4'][c]+'.png', bbox_inches='tight')
     plt.close()
 
     if c==0:
