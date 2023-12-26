@@ -1,7 +1,7 @@
 # Code
 The repository collects and openly releases the dataset and accompanying code for the results published in the following article: 
     
-    Leonardo Peroni, Sergey Gorinsky. 2024. Quality of Experience in Video Streaming: Status Quo, Pitfalls, and Guidelines 
+    Leonardo Peroni, Sergey Gorinsky. Quality of Experience in Video Streaming: Status Quo, Pitfalls, and Guidelines. COMSNETS 2024, pp.1-10 
 
 To reproduce the results, please follow the instructions provided in the readme.md files located inside the subfolders.
 
